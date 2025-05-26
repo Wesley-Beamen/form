@@ -16,7 +16,7 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
   const data = {
-    A: this.A.value
+    A: this.elements["A"].value
   };
 
   fetch("https://script.google.com/macros/s/AKfycby6fuYdYPe0YmXEQQzjwPsJe4-TINO-h_7jVIIZpRq5KU3nDQc93vyjvt-kCRxi8yP2OA/exec", {
@@ -36,6 +36,7 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
   })
   .catch(err => {
     alert("Network error: " + err);
+    console.error("Fetch failed:", err);
   });
 });
 </script>
