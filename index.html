@@ -15,30 +15,17 @@
 document.getElementById("myForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  const data = {
-    A: this.elements["A"].value
-  };
+  const val = this.elements["A"].value;
 
-  fetch("https://script.google.com/macros/s/AKfycbw8fRGhnAuxpNEygbp7aKjgyauG647ceio42Qu8n7vfxucHTA4YXUhwRsTpKpj2B6D8JA/exec", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json"
-    }
+  fetch(`https://script.google.com/macros/s/AKfycby6fuYdYPe0YmXEQQzjwPsJe4-TINO-h_7jVIIZpRq5KU3nDQc93vyjvt-kCRxi8yP2OA/exec?A=${encodeURIComponent(val)}`)
+  .then(response => response.text())
+  .then(text => {
+    if(text === "Success") alert("Submitted successfully!");
+    else alert("Submission failed: " + text);
   })
-  .then(response => response.json())
-  .then(result => {
-    if (result.result === "success") {
-      alert("Submitted successfully!");
-    } else {
-      alert("Error: " + result.message);
-    }
-  })
-  .catch(err => {
-    alert("Network error: " + err);
-    console.error("Fetch failed:", err);
-  });
+  .catch(err => alert("Network error: " + err));
 });
+
 </script>
 
 </body>
