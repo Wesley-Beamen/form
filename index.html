@@ -6,8 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form id="myForm">
-  <input type="text" name="a" placeholder="Enter something..." required>
+<form id="myForm">
+  <input type="text" name="a" placeholder="Enter something" required>
   <button type="submit">Submit</button>
 </form>
 
@@ -19,17 +19,26 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
     a: this.a.value
   };
 
-  fetch("YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL", {
+  fetch("YOUR_WEB_APP_URL_HERE", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
       "Content-Type": "application/json"
     }
   })
-  .then(res => res.json())
-  .then(response => alert("Submitted successfully!"))
-  .catch(err => alert("Submission failed."));
+  .then(response => response.json())
+  .then(result => {
+    if (result.result === "success") {
+      alert("Submitted successfully!");
+    } else {
+      alert("Error: " + result.message);
+    }
+  })
+  .catch(err => {
+    alert("Network error: " + err);
+  });
 });
 </script>
+
 </body>
 </html>
