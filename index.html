@@ -7,7 +7,7 @@
 </head>
 <body>
 <form id="myForm">
-  <input type="text" name="a" placeholder="Enter something" required>
+  <input type="text" name="A" placeholder="Enter something" required>
   <button type="submit">Submit</button>
 </form>
 
@@ -16,7 +16,7 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
   const data = {
-    a: this.a.value
+    A: this.A.value
   };
 
   fetch("https://script.google.com/macros/s/AKfycby6fuYdYPe0YmXEQQzjwPsJe4-TINO-h_7jVIIZpRq5KU3nDQc93vyjvt-kCRxi8yP2OA/exec", {
