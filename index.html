@@ -18,7 +18,7 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
 
   const val = this.elements["A"].value;
 
-fetch(`https://script.google.com/macros/s/AKfycby6fYcI8wBySFHfbP7zaQrLj3uqSmnxOnmcCMiwn7wxWvYjQ7DHY7gD9Ag3rZX5xccpZQ/exec?A=${encodeURIComponent(val)}`)
+fetch(`https://script.google.com/macros/s/AKfycbxlHkGwaFWVVsX7HiIoqZ5A_OrqEnwdPcsgpTof12qbYVjjusinvvEQMol6Scm3owpEVw/exec?A=${encodeURIComponent(val)}`)
   .then(response => response.text())
   .then(text => {
     if (text === "Success") {
