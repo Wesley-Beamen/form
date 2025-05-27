@@ -20,7 +20,7 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
   const valB = this.elements["B"].value;
 
   // Send both A and B as GET parameters
-  fetch(`https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec?A=${encodeURIComponent(valA)}&B=${encodeURIComponent(valB)}`)
+  fetch(`https://script.google.com/macros/s/AKfycbyy7gF5XrNXJ_iKEFCR581F4V-u9F_WU03jjIQpBxkdsDweMhndQSXxGZaLe10ldtRCHw/exec?A=${encodeURIComponent(valA)}&B=${encodeURIComponent(valB)}`)
     .then(response => response.text())
     .then(text => {
       if (text === "Success") {
