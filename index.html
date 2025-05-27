@@ -12,30 +12,25 @@
 </form>
 
 <script>
-<script>
 document.getElementById("myForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
   const val = this.elements["A"].value;
 
-fetch(`https://script.google.com/macros/s/AKfycbx4H69RN8Get-88A82CVy9JOSwzR4EvGxeIWkv36rE0srxoPlDwmoZf6yVOHAuWPMz3Jw/exec?A=${encodeURIComponent(val)}`)
-  .then(response => response.text())
-  .then(text => {
-    if (text === "Success") {
-      alert("Submitted successfully!");
-    } else {
-      alert("Submission failed: " + text);
-    }
-  })
-  .catch(err => {
-    alert("Network error: " + err);
-    console.error("Fetch failed:", err);
-  });
-
+  fetch(`https://script.google.com/macros/s/AKfycbx4H69RN8Get-88A82CVy9JOSwzR4EvGxeIWkv36rE0srxoPlDwmoZf6yVOHAuWPMz3Jw/exec?A=${encodeURIComponent(val)}`)
+    .then(response => response.text())
+    .then(text => {
+      if (text === "Success") {
+        alert("Submitted successfully!");
+      } else {
+        alert("Submission failed: " + text);
+      }
+    })
+    .catch(err => {
+      alert("Network error: " + err);
+      console.error("Fetch error:", err);
+    });
 });
-</script>
-
-
 </script>
 
 </body>
