@@ -8,6 +8,7 @@
 <body>
 <form id="myForm">
   <input type="text" name="A" placeholder="Enter something" required>
+  <input type="text" name="B" placeholder="Enter your name" required>
   <button type="submit">Submit</button>
 </form>
 
@@ -15,9 +16,11 @@
 document.getElementById("myForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  const val = this.elements["A"].value;
+  const valA = this.elements["A"].value;
+  const valB = this.elements["B"].value;
 
-  fetch(`https://script.google.com/macros/s/AKfycbxkQOS2y9XMwuwcLkqZQfeamIZHuEceck4oFXixtZr25rLFRr6eULbczg_qLMaA5lTZrA/exec/exec?A=${encodeURIComponent(val)}`)
+  // Send both A and B as GET parameters
+  fetch(`https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec?A=${encodeURIComponent(valA)}&B=${encodeURIComponent(valB)}`)
     .then(response => response.text())
     .then(text => {
       if (text === "Success") {
@@ -32,6 +35,7 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
     });
 });
 </script>
+
 
 </body>
 </html>
